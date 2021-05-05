@@ -52,7 +52,7 @@ Call: `app(account, callback)`. See example use in [index.js](https://github.com
 
 # Run: browser
 
-Ready to use: **[dist/index.html](https://htmlpreview.github.io/?https://github.com/WietseWind/xrpl-tx-exporter-csv/blob/main/dist/index.html)**
+Ready to use: **[dist/index.html](https://raw.githack.com/WietseWind/xrpl-tx-exporter-csv/main/dist/index.html)**
 
 Get the browserified version from the `dist` folder, and see `run as module`.
 Ready to use: https://cdn.jsdelivr.net/npm/xrpl-tx-export/dist/xrpl-tx-export.js
