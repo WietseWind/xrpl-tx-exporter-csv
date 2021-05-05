@@ -2,7 +2,7 @@
 
 This small node app fetches all transactions for an account and returns the results in CSV.
 
-Uses xrplcluster.com full history nodes.
+Uses [xrplcluster.com](https://xrplcluster.com) full history nodes.
 
 ### Exported columns:
 
