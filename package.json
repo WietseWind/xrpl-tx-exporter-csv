@@ -1,6 +1,6 @@
 {
   "name": "xrpl-tx-export",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Fetch XRPL transactions to CSV format",
   "main": "index.js",
   "scripts": {
