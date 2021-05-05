@@ -2,6 +2,8 @@
 
 This small node app fetches all transactions for an account and returns the results in CSV.
 
+Uses xrplcluster.com full history nodes.
+
 ### Exported columns:
 
 - ledger (XRPL Ledger Index)
