@@ -1,6 +1,6 @@
-# XRPL transaction exporter (to CSV)
+# XRPL transaction exporter
 
-This small node app fetches all transactions for an account and returns the results in CSV.
+This small node app fetches all transactions for an account and returns the results in CSV (when called from the command line) or as a parsed object (when used as a node module).
 
 Uses [xrplcluster.com](https://xrplcluster.com) full history nodes.
 
@@ -46,13 +46,14 @@ eg.
 
 # Run: as a module
 
-Import `app` and call as function. 
+Import `app` and call as function.
 
 Call: `app(account, callback)`. See example use in [index.js](https://github.com/WietseWind/xrpl-tx-exporter-csv/blob/main/index.js)
 
 # Run: browser
 
 Get the browserified version from the `dist` folder, and see `run as module`.
+Ready to use: https://cdn.jsdelivr.net/npm/xrpl-tx-export/dist/xrpl-tx-export.js
 
 Sample:
 https://jsfiddle.net/WietseWind/vtL3msaw
