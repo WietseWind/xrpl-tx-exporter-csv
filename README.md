@@ -16,6 +16,8 @@ Uses [xrplcluster.com](https://xrplcluster.com) full history nodes.
 - fee (fee in XRP, chraged to own account)
 - hash
 
+# Run: commandline (to CSV)
+
 ## Install
 
 `npm install`
@@ -39,3 +41,18 @@ eg.
 `node index.js {account} > {somefile}`
 eg.
 `node index.js rPEPPER7kfTD9w2To4CQk6UCfuHM9c6GDY > export.csv`
+
+# Run: as a module
+
+Import `app` and call as function. 
+
+Call: `app(account, callback)`. See example use in [index.js](https://github.com/WietseWind/xrpl-tx-exporter-csv/blob/main/index.js)
+
+# Run: browser
+
+Get the browserified version from the `dist` folder, and see `run as module`.
+
+Sample:
+https://jsfiddle.net/WietseWind/vtL3msaw
+
+Build for the browser using `npm run build` if working from source.
