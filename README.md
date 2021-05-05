@@ -1,4 +1,4 @@
-# XRPL transaction exporter
+# XRPL transaction exporter [![npm version](https://badge.fury.io/js/xrpl-tx-export.svg)](https://badge.fury.io/js/xrpl-tx-export) [![](https://data.jsdelivr.com/v1/package/npm/xrpl-tx-export/badge)](https://cdn.jsdelivr.net/npm/xrpl-tx-export/dist/xrpl-tx-export.js)
 
 This small node app fetches all transactions for an account and returns the results in CSV (when called from the command line) or as a parsed object (when used as a node module).
 
