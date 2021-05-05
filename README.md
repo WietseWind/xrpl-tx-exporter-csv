@@ -4,7 +4,7 @@ This small node app fetches all transactions for an account and returns the resu
 
 Uses [xrplcluster.com](https://xrplcluster.com) full history nodes.
 
-![](https://axtpndt.dlvr.cloud/ezgif.com-gif-maker%20(1).gif)
+![](https://d17wjbw.dlvr.cloud/gif.gif)
 
 ### Exported columns:
 
