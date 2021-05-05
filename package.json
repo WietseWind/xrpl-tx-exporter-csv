@@ -1,0 +1,15 @@
+{
+  "name": "xrpl-csv",
+  "version": "1.0.0",
+  "description": "Fetch XRPL transactions to CSV format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ripple-lib-transactionparser": "^0.8.2",
+    "rippled-ws-client": "^1.6.5"
+  }
+}
