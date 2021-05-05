@@ -4,6 +4,8 @@ This small node app fetches all transactions for an account and returns the resu
 
 Uses [xrplcluster.com](https://xrplcluster.com) full history nodes.
 
+![](https://s3.gifyu.com/images/giff47d82669761cede.gif)
+
 ### Exported columns:
 
 - ledger (XRPL Ledger Index)
