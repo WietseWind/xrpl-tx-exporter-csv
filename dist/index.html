@@ -60,7 +60,15 @@
             account: '',
             transactions: [],
             started: false,
-            fields: exportModule.fields
+            withTxDetails: false
+          },
+          computed: {
+            fields: function () {
+              if (this.withTxDetails) {
+                return exportModule.fields.concat(['DestinationTag', 'SourceTag'])
+              }
+              return exportModule.fields
+            }
           },
           methods: {
             exportCsv: function () {
@@ -75,8 +83,14 @@
               this.transactions = []
               var vThis = this
               exportModule.app(this.account, function (tx) {
+                if (vThis.withTxDetails) {
+                  Object.assign(tx, {
+                    DestinationTag: tx._tx.DestinationTag || '',
+                    SourceTag: tx._tx.SourceTag || ''
+                  })
+                }
                 vThis.transactions.push(tx)
-              })
+              }, Boolean(this.withTxDetails))
             }
           }
         })
@@ -96,7 +110,12 @@
         <div class="" v-if="!started">
           <h5>Enter your account address:</h5>
           <input type="search" placeholder="r..." v-model="account" class="input form-control input-lg form-control-lg">
-          <button @click="start" :disabled="account === ''" class="btn btn-primary btn-lg py-1 mt-2 d-block">Fetch transactions</button>
+          <div class="d-inline-block">
+            <button @click="start" :disabled="account === ''" class="btn btn-primary btn-lg py-1 mt-2 d-block">Fetch transactions</button>
+          </div>
+          <div class="ps-3 d-inline-block">
+            <input v-model="withTxDetails" type="checkbox" id="withTxDetails" /> <label for="withTxDetails"> With transaction details (like destination/source tag)</label>
+          </div>
         </div>
         <div v-if="started">
           <div class="row">
