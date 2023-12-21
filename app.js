@@ -14,8 +14,8 @@ const app = async (account, cb, returnTx) => {
         if (Object.keys(balanceChanges).indexOf(account) > -1) {
           const mutations = balanceChanges[account]
           mutations.forEach(mutation => {
-            const currency = mutation.counterparty === ''
-              ? 'XRP'
+            const currency = mutation.counterparty === '' || typeof mutation?.counterparty !== 'string'
+              ? 'XAH'
               : `${mutation.counterparty}.${mutation.currency}`
 
             const isFee = direction === 'sent' && Number(mutation.value) * -1 * 1000000 === Number(tx?.Fee)
@@ -45,7 +45,7 @@ const app = async (account, cb, returnTx) => {
     }
   }
 
-  const client = await new Client('wss://xrplcluster.com', {
+  const client = await new Client('wss://xahau.network', {
     NoUserAgent: true
   })
 
