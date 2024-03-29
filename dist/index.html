@@ -59,21 +59,18 @@
           data: {
             account: '',
             transactions: [],
-            started: false,
-            withTxDetails: false
+            started: false
           },
           computed: {
             fields: function () {
-              if (this.withTxDetails) {
-                return exportModule.fields.concat(['Destination', 'DestinationTag', 'SourceTag'])
-              }
+              return exportModule.fields.concat(['Destination', 'DestinationTag', 'SourceTag'])
               return exportModule.fields
             }
           },
           methods: {
             exportCsv: function () {
-              return exportToCsv(this.account + '.csv', this.transactions.map(function (tx) {
-                return exportModule.fields.map(function (field) {
+              return exportToCsv(this.account + '.csv', this.transactions.map(tx => {
+                return this.fields.map(field => {
                   return String(tx[field])
                 })
               }))
@@ -83,15 +80,13 @@
               this.transactions = []
               var vThis = this
               exportModule.app(this.account, function (tx) {
-                if (vThis.withTxDetails) {
-                  Object.assign(tx, {
-                    Destination: tx._tx.Destination || '',
-                    DestinationTag: tx._tx.DestinationTag || '',
-                    SourceTag: tx._tx.SourceTag || ''
-                  })
-                }
+                Object.assign(tx, {
+                  Destination: tx._tx.Destination || '',
+                  DestinationTag: tx._tx.DestinationTag || '',
+                  SourceTag: tx._tx.SourceTag || ''
+                })
                 vThis.transactions.push(tx)
-              }, Boolean(this.withTxDetails))
+              }, true)
             }
           }
         })
@@ -113,9 +108,6 @@
           <input type="search" placeholder="r..." v-model="account" class="input form-control input-lg form-control-lg">
           <div class="d-inline-block">
             <button @click="start" :disabled="account === ''" class="btn btn-primary btn-lg py-1 mt-2 d-block">Fetch transactions</button>
-          </div>
-          <div class="ps-3 d-inline-block">
-            <input v-model="withTxDetails" type="checkbox" id="withTxDetails" /> <label for="withTxDetails"> With transaction details (like destination/source tag)</label>
           </div>
         </div>
         <div v-if="started">
