@@ -65,7 +65,7 @@
           computed: {
             fields: function () {
               if (this.withTxDetails) {
-                return exportModule.fields.concat(['Destination', 'DestinationTag', 'SourceTag'])
+                return exportModule.fields.concat(['SourceTag'])
               }
               return exportModule.fields
             }
