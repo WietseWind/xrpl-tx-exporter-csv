@@ -65,7 +65,7 @@
           computed: {
             fields: function () {
               if (this.withTxDetails) {
-                return exportModule.fields.concat(['DestinationTag', 'SourceTag'])
+                return exportModule.fields.concat(['Destination', 'DestinationTag', 'SourceTag'])
               }
               return exportModule.fields
             }
@@ -85,6 +85,7 @@
               exportModule.app(this.account, function (tx) {
                 if (vThis.withTxDetails) {
                   Object.assign(tx, {
+                    Destination: tx._tx.Destination || '',
                     DestinationTag: tx._tx.DestinationTag || '',
                     SourceTag: tx._tx.SourceTag || ''
                   })
